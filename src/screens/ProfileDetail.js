@@ -23,6 +23,7 @@ const ProfileDetail = ({navigation}) => {
         source={require("./assets/photo2.png")}
         style={{
           height: 0.5 * h,
+          position: 'relative', // 確保內部元素使用絕對定位
         }}
       >
         <View
@@ -32,18 +33,30 @@ const ProfileDetail = ({navigation}) => {
             paddingHorizontal: 20,
             marginTop: 60,
             alignItems: "center",
+            zIndex: 10, // 確保這個視圖在最上層
+            position: 'absolute',
+            width: '100%',
+            backgroundColor: 'transparent',
           }}
         >
-            <TouchableOpacity onPress={()=>navigation.goBack()}>
-          <Image source={require("./assets/icons-back-light.png")} />
+          <TouchableOpacity onPress={()=>navigation.goBack()}>
+            <Image
+              source={require("./assets/icons-back-light.png")}
+              style={{ width: 20, height: 20 }}
+            
+            />
           </TouchableOpacity>
-          <Image source={require("./assets/filter.png")} />
+          <Image
+            source={require("./assets/filter.png")}
+            style={{ width: 20, height: 20 }}
+          />
         </View>
         <View
           style={{
             alignSelf: "center",
             alignItems: "center",
             marginTop: 0.17 * h,
+            zIndex: 0, // 將這個視圖放在底層
           }}
         >
           <Image
@@ -102,7 +115,7 @@ const ProfileDetail = ({navigation}) => {
         <View
           style={{
             flexDirection: "row",
-            marginTop:20
+            marginTop: 20,
           }}
         >
           <Image
@@ -111,16 +124,17 @@ const ProfileDetail = ({navigation}) => {
               borderTopLeftRadius: 40,
               marginRight: 16,
               borderBottomLeftRadius: 40,
+              width: 150, height: 300
             }}
           />
           <View>
             <Image
               source={require("./assets/photo5.png")}
-              style={{ borderTopRightRadius: 40 }}
+              style={{ width: 150, height: 142 ,borderTopRightRadius: 40 }}
             />
             <Image
               source={require("./assets/photo6.png")}
-              style={{ marginTop: 16, borderBottomRightRadius: 40 }}
+              style={{ width: 150, height: 142,marginTop: 16, borderBottomRightRadius: 40 }}
             />
           </View>
         </View>
